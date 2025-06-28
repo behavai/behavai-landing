@@ -1,0 +1,67 @@
+@keyframes floatDownLeft {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-80px, 120px);
+  }
+}
+
+@keyframes floatUpLeft {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25%, 75%{
+    transform: translate(0, -120px);
+  }
+  50% {
+    transform: translate(-80px, -120px);
+  }
+}
+
+@keyframes floatDownRight {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+    25%, 75% {
+        transform: translate(0, 200px);
+    }
+  50% {
+    transform: translate(200px, 200px);
+  }
+}
+
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-100px);
+  }
+}
+
+.floating-down-left {
+  animation: floatDownLeft 8s ease-in-out infinite;
+}
+
+.floating-up-left {
+  animation: floatUpLeft 8s ease-in-out infinite;
+}
+
+.floating-down-right {
+  animation: floatDownRight 8s ease-in-out infinite;
+}
+
+.floating-up-down {
+  animation: floatUpDown 8s ease-in-out infinite;
+}
+
+
+.font-cooper {
+    font-family: var(--font-cooper);
+    
+}
+
+.font-inter {
+    font-family: var(--font-inter);
+}
