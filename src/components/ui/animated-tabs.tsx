@@ -1,46 +1,62 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 type AnimatedTabsProps = {
   tabs: string[];
   scrolled: boolean;
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
 };
 
-export function AnimatedTabs({ tabs, scrolled }: AnimatedTabsProps) {
-  const [activeTab, setActiveTab] = useState(tabs[0]);
-  const [tabRects, setTabRects] = useState<{ [key: string]: DOMRect }>({});
+export function AnimatedTabs({
+  tabs,
+  scrolled,
+  activeTab,
+  setActiveTab,
+}: AnimatedTabsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [tabRects, setTabRects] = useState<{ [key: string]: DOMRect }>({});
+
+  const measureRects = () => {
+    if (!containerRef.current) return;
+    const newRects: { [key: string]: DOMRect } = {};
+    tabs.forEach((tab) => {
+      const el = document.getElementById(`tab-${tab}`);
+      if (el) {
+        newRects[tab] = el.getBoundingClientRect();
+      }
+    });
+    setTabRects(newRects);
+  };
 
   useEffect(() => {
-    const observer = new ResizeObserver(() => {
-      if (!containerRef.current) return;
-      const rectMap: { [key: string]: DOMRect } = {};
-      tabs.forEach((tab) => {
-        const el = document.getElementById(`tab-${tab}`);
-        if (el) {
-          rectMap[tab] = el.getBoundingClientRect();
-        }
-      });
-      setTabRects(rectMap);
-    });
+    const frame = requestAnimationFrame(measureRects); // delay until after paint
 
+    const observer = new ResizeObserver(measureRects);
     const container = containerRef.current;
     if (container) observer.observe(container);
 
     return () => {
+      cancelAnimationFrame(frame);
       if (container) observer.unobserve(container);
     };
-  }, [tabs, activeTab]);
+  }, [tabs]);
+
+  useEffect(() => {
+    // re-measure every time the active tab changes
+    const timeout = setTimeout(measureRects, 10); // allow DOM to update
+    return () => clearTimeout(timeout);
+  }, [activeTab]);
 
   const containerRect = containerRef.current?.getBoundingClientRect();
   const activeRect = tabRects[activeTab];
   const left =
     activeRect && containerRect
-      ? activeRect.left - containerRect.left - 2 // small buffer left
+      ? activeRect.left - containerRect.left - 2
       : 0;
-  const width = activeRect?.width ? activeRect.width + 4 : 0; // small buffer width
+  const width = activeRect?.width ? activeRect.width + 4 : 0;
 
   return (
     <div
@@ -49,20 +65,13 @@ export function AnimatedTabs({ tabs, scrolled }: AnimatedTabsProps) {
         scrolled ? "bg-white/50 backdrop-blur-md shadow-sm" : "bg-transparent"
       }`}
     >
-      {/* Animated background pill */}
-      {activeRect && (
-        <motion.div
-          layout
-          transition={{ type: "spring", stiffness: 500, damping: 30 }}
-          className="absolute top-[4px] h-[calc(100%-8px)] bg-[#170737] rounded-full z-0"
-          style={{
-            left,
-            width,
-          }}
-        />
-      )}
+      <motion.div
+        layout
+        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+        className="absolute top-[4px] h-[calc(100%-8px)] bg-[#170737] rounded-full z-0"
+        style={{ left, width }}
+      />
 
-      {/* Tab labels */}
       {tabs.map((tab) => {
         const isActive = tab === activeTab;
 

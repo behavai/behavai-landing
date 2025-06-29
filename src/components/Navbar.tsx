@@ -3,11 +3,17 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { AnimatedTabs } from "@/components/ui/animated-tabs"; // or remove this if you're testing standalone
+import { AnimatedTabs } from "@/components/ui/animated-tabs";
 
 const TABS = ["Product", "About", "Blog", "Contact"];
 
-export function Navbar() {
+export function Navbar({
+  activeTab,
+  setActiveTab,
+}: {
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
+}) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -19,13 +25,14 @@ export function Navbar() {
     };
 
     scrollable.addEventListener("scroll", onScroll);
-    return () => scrollable.removeEventListener("scroll", onScroll);
+    return () => {
+      scrollable.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 px-6 py-3 ">
-      <div className="flex justify-between items-center ">
-        {/* Left: Logo + BehavAI text */}
+    <header className="fixed top-0 left-0 w-full z-50 px-6 py-3">
+      <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
           <button
             onClick={() => {
@@ -56,9 +63,13 @@ export function Navbar() {
           </AnimatePresence>
         </div>
 
-        {/* Right: Pills */}
         <div className="font-cooper">
-          <AnimatedTabs tabs={TABS} scrolled={scrolled} />
+          <AnimatedTabs
+            tabs={TABS}
+            scrolled={scrolled}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+          />
         </div>
       </div>
     </header>
