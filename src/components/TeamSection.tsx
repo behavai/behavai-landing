@@ -2,7 +2,7 @@ import { FaLinkedin, FaGithub, FaGlobe } from 'react-icons/fa';
 
 export default function TeamSection() {
   return (
-    <section className="min-h-screen bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#f4f4ff] via-[#efefff] to-[#e5e5f7] flex items-center justify-center px-6 py-24">
+    <section className="flex-1 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#f4f4ff] via-[#efefff] to-[#e5e5f7] flex items-center justify-center px-6 py-24">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl w-full">
         {/* Team Member 1 */}
         <div className="relative bg-white/20 backdrop-blur-xl border border-white/40 rounded-3xl shadow-[inset_0_0_0.5px_rgba(255,255,255,0.4),_0_4px_30px_rgba(0,0,0,0.1)] p-8 text-gray-800 flex flex-row gap-6 hover:scale-[1.02] transition-transform duration-300 before:content-[''] before:absolute before:inset-0 before:rounded-3xl before:border before:border-white/10 before:shadow-[0_0_30px_rgba(255,255,255,0.2)] before:pointer-events-none overflow-hidden">

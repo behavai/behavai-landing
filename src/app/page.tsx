@@ -1,21 +1,3 @@
-// import { Navbar } from "@/components/Navbar";
-// import { HeroSection } from "@/components/HeroSection";
-// import { FeaturesSection } from "@/components/FeaturesSection";
-// import { DemoCardsSection } from "@/components/DemoCardsSection";
-// import Footer from "@/components/Footer";
-
-// export default function Home() {
-//   return (
-//     <main className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
-//       <Navbar />
-//       <HeroSection />
-//       <FeaturesSection />
-//       <DemoCardsSection />
-//       <Footer />
-//     </main>
-
-//   );
-// }
 "use client";
 
 import { useState } from "react";
@@ -47,13 +29,19 @@ export default function Home() {
             <FeaturesSection />
             <DemoCardsSection />
             <Support />
+            <Footer setActiveTab={setActiveTab} />
             
           </motion.div>
         );
       case "About":
         return (
-          <motion.div key="about" {...motionProps}>
+          <motion.div
+            key="about"
+            {...motionProps}
+            className="h-screen snap-start flex flex-col"
+          >
             <TeamSection />
+            <Footer setActiveTab={setActiveTab} />
           </motion.div>
         );
       case "Blog":
@@ -72,7 +60,7 @@ export default function Home() {
     <main className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
       <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
       <AnimatePresence mode="wait">{renderContent()}</AnimatePresence>
-      <Footer />
+    
     </main>
   );
 }
