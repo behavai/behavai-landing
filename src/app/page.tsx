@@ -9,6 +9,8 @@ import TeamSection from "@/components/TeamSection";
 import Footer from "@/components/Footer";
 import { AnimatePresence, motion } from "framer-motion";
 import { Support } from "@/components/Support";
+import Blog from "@/components/Blog";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("Product");
@@ -45,12 +47,21 @@ export default function Home() {
           </motion.div>
         );
       case "Blog":
+        return (
+          <motion.div key="blog" {...motionProps}
+          className="h-screen snap-start flex flex-col">
+            <Blog />
+            <Footer setActiveTab={setActiveTab} />
+          </motion.div>
+        );
       case "Contact":
         return (
-          <motion.div key={activeTab} {...motionProps}>
-            <section className="min-h-screen flex items-center justify-center text-xl">
+          <motion.div key={activeTab} {...motionProps} className="h-screen snap-start flex flex-col">
+            <Contact />
+            <Footer setActiveTab={setActiveTab} />
+            {/* <section className="min-h-screen flex items-center justify-center text-xl">
               {activeTab} page coming soon.
-            </section>
+            </section> */}
           </motion.div>
         );
     }
