@@ -82,39 +82,27 @@ export function DemoCardsSection() {
   const demoCards = [
     {
       index: 1,
-      header: "Upload Your Data",
-      body: "Simply drag and drop your files or connect to your favorite data sources. We support CSV, Excel, databases, and more.",
-      image: "/images/upload-demo.png" // Replace with your actual image paths
+      header: "Upload Any Document",
+      body: "Drop in Session Notes, progress logs, PDFs, or scanned images. BehavAI handles the rest its intelligent document processing. ",
+      image: "/images/upload-demo.png" 
     },
     {
       index: 2,
-      header: "Auto Data Processing",
-      body: "Our AI automatically cleans, validates, and structures your data, saving you hours of manual preparation work.",
+      header: "Extract Key Data Instantly",
+      body: "Our AI pulls out goals, behaviors, timestamps, and infers trends from your documents in seconds, ready for fast review and editing.",
       image: "/images/processing-demo.png"
     },
     {
       index: 3,
-      header: "Smart Analysis",
-      body: "Get instant insights with automated pattern detection, anomaly identification, and trend analysis.",
+      header: "Generate Smart Reports",
+      body: "Once you create a report, BehavAI will generate a complete draft with charts, summaries, and customizable insights.",
       image: "/images/analysis-demo.png"
     },
     {
       index: 4,
-      header: "Interactive Visualizations",
-      body: "Create stunning charts, graphs, and dashboards with our intuitive drag-and-drop interface.",
+      header: "Refine & Export with Confidence",
+      body: "Adjust tone, language, or data visualizations with a few clicks, then export a professional, audit-ready report ready to share.",
       image: "/images/visualization-demo.png"
-    },
-    {
-      index: 5,
-      header: "Share & Collaborate",
-      body: "Share your insights with stakeholders through interactive reports and real-time collaboration features.",
-      image: "/images/sharing-demo.png"
-    },
-    {
-      index: 6,
-      header: "Export & Integrate",
-      body: "Export your results or integrate directly with your existing tools and workflows via our robust API.",
-      image: "/images/export-demo.png"
     }
   ];
 
@@ -126,7 +114,7 @@ export function DemoCardsSection() {
         </h2>
       </div>
 
-      <div className="flex-1 flex items-center">
+      <div className="flex-1 flex items-center mb-7 mt-[-1rem]">
         <DemoCarousel cards={demoCards} />
       </div>
     </section>

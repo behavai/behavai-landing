@@ -11,7 +11,7 @@ interface DemoCardProps {
 
 export default function DemoCard({ index, header, body, image }: DemoCardProps) {
   return (
-    <div className="flex rounded-[24px] shadow-2xl bg-white h-[600px] overflow-hidden w-full">
+    <div className="flex rounded-[24px] shadow-2xl bg-white h-[30rem] overflow-hidden w-full">
       {/* Left Column */}
       <div className="flex flex-col w-2/5 px-16 py-12 justify-between">
         <div className="h-1/3">
