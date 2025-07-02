@@ -27,12 +27,20 @@ export default function Home() {
       case "Product":
         return (
           <motion.div key="product" {...motionProps}>
-            <HeroSection />
+            <HeroSection setActiveTab={setActiveTab} />
             <FeaturesSection />
             <DemoCardsSection />
-            <Support />
             <Footer setActiveTab={setActiveTab} />
-            
+          </motion.div>
+        );
+      case "About":
+        return (
+          <motion.div
+            key="about"
+            {...motionProps}
+            className="h-screen snap-start flex flex-col"
+          >
+            <TeamSection />
           </motion.div>
         );
       case "About":
