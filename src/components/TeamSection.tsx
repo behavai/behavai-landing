@@ -1,4 +1,5 @@
-import { FaLinkedin, FaGithub, FaGlobe } from 'react-icons/fa';
+// import { FaLinkedin, FaGithub, FaGlobe } from 'react-icons/fa';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import Image from 'next/image';
 
 export default function TeamSection() {
@@ -24,7 +25,7 @@ export default function TeamSection() {
             <h2 className="text-xl font-semibold text-gray-900">Lana Farkas</h2>
             <p className="text-sm text-gray-500 mt-1">Co-Founder & CEO</p>
             <p className="mt-4 text-sm text-gray-700">
-              MHCI'25 @ Carnegie Mellon University.
+              MHCI&apos;25 @ Carnegie Mellon University.
             </p>
             <div className="mt-4 flex gap-4 text-indigo-600 text-lg">
               <a href="https://www.linkedin.com/in/lana-farkas-66bb0a246/" aria-label="LinkedIn" className="hover:text-indigo-800"><FaLinkedin /></a>
@@ -46,7 +47,7 @@ export default function TeamSection() {
             <h2 className="text-xl font-semibold text-gray-900">Grisha Bandodkar</h2>
             <p className="text-sm text-gray-500 mt-1">Co-Founder & CTO</p>
             <p className="mt-4 text-sm text-gray-700">
-              MSAII' 26 @ Carnegie Mellon University. 
+              MSAII&apos;26 @ Carnegie Mellon University.
             </p>
             <div className="mt-4 flex gap-4 text-indigo-600 text-lg">
               <a href="https://www.linkedin.com/in/grisha-bandodkar/" aria-label="LinkedIn" className="hover:text-indigo-800"><FaLinkedin /></a>

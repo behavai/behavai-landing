@@ -2,7 +2,8 @@
 
 import "@/styles/styles.css";
 import DemoCard from "./DemoCard";
-import { useRef, useState, useEffect, SetStateAction } from "react";
+// import { useRef, useState, useEffect, SetStateAction } from "react";
+import {useState} from "react";
 import Footer from "./Footer";
 
 type DemoCardType = {
@@ -35,9 +36,9 @@ const DemoCarousel = ({ cards }: DemoCarouselProps) => {
     );
   };
 
-  const goToSlide = (index: SetStateAction<number>) => {
-    setCurrentIndex(index);
-  };
+  // const goToSlide = (index: SetStateAction<number>) => {
+  //   setCurrentIndex(index);
+  // };
 
   return (
     <div className="relative w-[60%] mx-auto px-4">

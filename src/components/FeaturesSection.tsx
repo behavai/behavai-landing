@@ -4,7 +4,7 @@ import "@/styles/styles.css";
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { Support } from "./Support";
-import { image } from "framer-motion/client";
+// import { image } from "framer-motion/client";
 
 const easeOut: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
 

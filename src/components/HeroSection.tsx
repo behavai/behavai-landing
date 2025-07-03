@@ -3,7 +3,7 @@
 import "@/styles/styles.css";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Support } from "./Support";
+// import { Support } from "./Support";
 import { useState } from "react";
 
 type HeroSectionProps = {

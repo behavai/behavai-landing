@@ -8,10 +8,10 @@ import { DemoCardsSection } from "@/components/DemoCardsSection";
 import TeamSection from "@/components/TeamSection";
 import Footer from "@/components/Footer";
 import { AnimatePresence, motion } from "framer-motion";
-import { Support } from "@/components/Support";
+// import { Support } from "@/components/Support";
 import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
-import { MoreInfo } from "@/components/MoreInfo";
+// import { MoreInfo } from "@/components/MoreInfo";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("Product");
