@@ -11,6 +11,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Support } from "@/components/Support";
 import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
+import { MoreInfo } from "@/components/MoreInfo";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("Product");
@@ -29,20 +30,11 @@ export default function Home() {
           <motion.div key="product" {...motionProps}>
             <HeroSection setActiveTab={setActiveTab} />
             <FeaturesSection />
-            <DemoCardsSection />
-            <Footer setActiveTab={setActiveTab} />
+            <DemoCardsSection setActiveTab={setActiveTab} />
+            {/* <Footer setActiveTab={setActiveTab} /> */}
           </motion.div>
         );
-      case "About":
-        return (
-          <motion.div
-            key="about"
-            {...motionProps}
-            className="h-screen snap-start flex flex-col"
-          >
-            <TeamSection />
-          </motion.div>
-        );
+      
       case "About":
         return (
           <motion.div

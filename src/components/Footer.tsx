@@ -5,7 +5,6 @@ type FooterProps = {
 
 export default function Footer({ setActiveTab }: FooterProps) {
   return (
-    // <footer className="bg-[#F6F7FC] py-7">
     <footer className="bg-[#F6F7FC] py-7 z-[9999] relative">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
         <div className="mb-6 md:mb-0 text-left">

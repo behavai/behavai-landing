@@ -11,15 +11,15 @@ interface DemoCardProps {
 
 export default function DemoCard({ index, header, body, image }: DemoCardProps) {
   return (
-    <div className="flex rounded-[24px] shadow-2xl bg-white h-[30rem] overflow-hidden w-full">
+    <div className="flex rounded-[24px] shadow-2xl bg-white h-[30rem] overflow-hidden ">
       {/* Left Column */}
-      <div className="flex flex-col w-2/5 px-16 py-12 justify-between">
+      <div className="flex flex-col w-2/5 px-16 py-12 justify-between font-cooper">
         <div className="h-1/3">
           <p className="text-xl font-semibold">{index.toString().padStart(2, '0')}</p>
         </div>
         <div className="h-2/3 flex flex-col justify-center">
-          <h2 className="text-4xl font-bold mb-4">{header}</h2>
-          <p className="text-gray-600 text-lg">{body}</p>
+          <h2 className="text-4xl font-cooper mb-4">{header}</h2>
+          <p className="text-gray-600 font-inter tracking-[-0.32px]">{body}</p>
         </div>
       </div>
 

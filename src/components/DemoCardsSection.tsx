@@ -3,12 +3,17 @@
 import "@/styles/styles.css";
 import DemoCard from "./DemoCard";
 import { useRef, useState, useEffect, SetStateAction } from "react";
+import Footer from "./Footer";
 
 type DemoCardType = {
   index: number;
   header: string;
   body: string;
   image: string;
+};
+
+type DemoCardsSectionProps = {
+  setActiveTab: (tab: string) => void;
 };
 
 interface DemoCarouselProps {
@@ -35,7 +40,7 @@ const DemoCarousel = ({ cards }: DemoCarouselProps) => {
   };
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto px-4">
+    <div className="relative w-[60%] mx-auto px-4">
       {/* Navigation Buttons */}
       <button
         onClick={goToPrevious}
@@ -77,37 +82,37 @@ const DemoCarousel = ({ cards }: DemoCarouselProps) => {
     </div>
   );
 };
-export function DemoCardsSection() {  
+export function DemoCardsSection({ setActiveTab }: DemoCardsSectionProps) {
   // Sample data for your demo cards
   const demoCards = [
     {
       index: 1,
       header: "Upload Any Document",
       body: "Drop in Session Notes, progress logs, PDFs, or scanned images. BehavAI handles the rest its intelligent document processing. ",
-      image: "/images/upload-demo.png" 
+      image: "/assets/documents.svg" 
     },
     {
       index: 2,
       header: "Extract Key Data Instantly",
       body: "Our AI pulls out goals, behaviors, timestamps, and infers trends from your documents in seconds, ready for fast review and editing.",
-      image: "/images/processing-demo.png"
+      image: "/assets/data.svg" 
     },
     {
       index: 3,
       header: "Generate Smart Reports",
       body: "Once you create a report, BehavAI will generate a complete draft with charts, summaries, and customizable insights.",
-      image: "/images/analysis-demo.png"
+      image: "/assets/report.svg"
     },
     {
       index: 4,
       header: "Refine & Export with Confidence",
       body: "Adjust tone, language, or data visualizations with a few clicks, then export a professional, audit-ready report ready to share.",
-      image: "/images/visualization-demo.png"
+      image: "/assets/edit_report.svg"
     }
   ];
 
   return (
-    <section className="relative snap-start overflow-hidden flex flex-col">
+    <section className="relative h-screen snap-start overflow-hidden flex flex-col">
       <div className="mt-[5rem] mb-[2rem] ml-[5rem]">
         <h2 className="text-[3rem] font-cooper text-[#080015]">
           From upload to insight in just a few steps!
@@ -117,6 +122,7 @@ export function DemoCardsSection() {
       <div className="flex-1 flex items-center mb-7 mt-[-1rem]">
         <DemoCarousel cards={demoCards} />
       </div>
+      <Footer setActiveTab={setActiveTab} />  
     </section>
   );
 }
